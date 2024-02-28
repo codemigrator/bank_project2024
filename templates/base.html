@@ -1,0 +1,209 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <!-- title of site -->
+        <title>Directory Landing Page</title>
+
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="{% static 'logo/favicon.png' %}"/>
+
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+        <!--linear icon css-->
+		<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+
+		<!--animate.css-->
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+		<!--flaticon.css-->
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+
+		<!--slick.css-->
+        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+		<link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="{% static 'css/bootsnav.css' %}" >
+
+        <!--style.css-->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        <!--responsive.css-->
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+        <!--[if lt IE 9]>
+		        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <style>
+            html,body{
+            height:100%;
+            padding:0;
+            margin:0;
+
+            }
+.fixdiv{
+		width:100%;
+		}
+.form1{
+        width:480px;height:300px;margin-left:auto;margin-right:auto;margin-top:20px;border-radius:10px;border:10px;border:orange;
+
+        }
+.submit{text-align:center;margin-left:auto;margin-right:auto;
+}
+.submt{width:170px;height:40px;border-radius:10px;float:left;
+}
+.submt:hover{background-color:#0D7035;}
+
+ .form1{
+           width:480px;height:250px;margin-left:auto;margin-right:auto;margin-top:20px;border-radius:10px;border:10px;border:orange;
+
+        }
+
+
+
+</style>
+
+    </head>
+
+        <![endif]-->
+
+		<!-- top-area Start -->
+		<section class="top-area">
+			<div class="header-area">
+				<!-- Start Navigation -->
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+			        <div class="container">
+
+			            <!-- Start Header Navigation -->
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="index.html">FAITH<span>BANK</span></a>
+
+			            </div><!--/.navbar-header-->
+			            <!-- End Header Navigation -->
+
+			            <!-- Collect the nav links, forms, and other content for toggling -->
+			            <div class="collapse navbar-collapse menu-ui-design" >
+			                <ul class="nav navbar-nav navbar-right" >
+			                    <li class=" scroll active"><a href="#home">HOME</a></li>
+			                    <li class="scroll"><a href="#works">SERVICES</a></li>
+								   <li class="dropdown">
+									<a>BRANCH</a>
+								  <ul class="dropdown-menu">
+									  <li><a href="https://en.wikipedia.org/wiki/Thrissur">Thrissur</a></li>
+									  <li><a href="https://en.wikipedia.org/wiki/Malappuram">Malapuram</a></li>
+									  <li><a href="https://en.wikipedia.org/wiki/Kozhikode">Kozhikode</a></li>
+									  <li><a href="https://en.wikipedia.org/wiki/Ernakulam">Ernakulam</a></li>
+									  <li><a href="https://en.wikipedia.org/wiki/Kollam">Kollam</a></li>
+								  </ul></li>
+			                    <li class="scroll"><a href="#blog">news</a></li>
+			                    <li class="scroll"><a href="#footer">contact</a></li>
+								{% if user.is_authenticated %}
+									<li><a href="credentials/logout" class=" btn nav-item nav-link">Logout</a></li>
+								{% else %}
+                    			<li><a href="credentials/login" class=" btn nav-item nav-link">Login</a></li>
+                    			<li><a href="credentials/register" class="nav-item nav-link">register</a></li>
+								{% endif %}
+			                </ul><!--/.nav -->
+			            </div><!-- /.navbar-collapse -->
+			        </div><!--/.container-->
+			    </nav><!--/nav-->
+			    <!-- End Navigation -->
+			</div><!--/.header-area-->
+		    <div class="clearfix"></div>
+
+		</section><!-- /.top-area-->
+		<!-- top-area End -->
+        {% block content %}
+        {% endblock %}
+
+    		<!--footer start-->
+		<footer id="footer"  class="footer">
+			<div class="container" style="width:100%;">
+				<div class="hm-footer-copyright">
+					<div class="row">
+						<div class="col-sm-5">
+							<p>
+								&copy;copyright. designed and developed by <a href="https://www.themesine.com/">themesine</a>
+							</p><!--/p-->
+						</div>
+						<div class="col-sm-7">
+							<div class="footer-social">
+								<span><i class="fa fa-phone"> +1  (222) 777 8888</i></span>
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-linkedin"></i></a>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
+							</div>
+						</div>
+					</div>
+
+				</div><!--/.hm-footer-copyright-->
+			</div><!--/.container-->
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+
+			</div><!--/.scroll-Top-->
+
+        </footer><!--/.footer-->
+		<!--footer end-->
+
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="{% static 'js/jquery.js' %}"></script>
+
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+		<!--bootstrap.min.js-->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+		<!-- bootsnav js -->
+		<script src="{% static 'js/bootsnav.js' %}"></script>
+
+        <!--feather.min.js-->
+        <script  src="{% static 'js/feather.min.js' %}"></script>
+
+        <!-- counter js -->
+		<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+		<script src="{% static 'js/waypoints.min.js' %}"></script>
+
+        <!--slick.min.js-->
+        <script src="{% static 'js/slick.min.js' %}"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--Custom JS-->
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+
+</html>

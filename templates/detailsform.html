@@ -1,0 +1,124 @@
+{% extends 'base1.html' %}
+{% block content %}
+<div style="
+  outline: solid 1px black;
+  display: flex;
+  justify-content: center;">
+<div style="justify-content: center;display: flex;border-style: solid;outline: solid 1px black;width:950px;height:auto;">
+<form action="{% url 'credentials:details_form' %}" class="form-horizontal col-md-10 " id="dataform" data-cities-url="{% url 'credentials:ajax_branch_url' %}" style="text-align:center;padding-top:10px;" method="post">
+    {% csrf_token %}
+        <div style="text-align:center;margin-top:25px;margin-bottom:25px;">
+            <h1 style="font-family:Times New Roman;font-size:30px;">Please fill this form for further process</h1>
+        </div>
+       <div class="form-group row">
+        <label  class="col-sm-4 col-form-label">{{ form.name.label }}:</label>
+        <div class="col-sm-8">
+            {{ form.name }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label  class="col-sm-4 col-form-label">{{ form.date_of_birth.label }}:</label>
+        <div class="col-sm-8">
+            {{ form.date_of_birth }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">{{ form.age.label}}:</label>
+        <div class="col-sm-8">
+            {{form.age}}
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">{{ form.phone_number.label}}:</label>
+        <div class="col-sm-8">
+            {{form.phone_number}}
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">{{ form.mail_id.label}}:</label>
+        <div class="col-sm-8">
+            {{form.mail_id}}
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">{{ form.address.label}}:</label>
+        <div class="col-sm-8">
+            {{form.address}}
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">{{ form.district.label}}:</label>
+        <div class="col-sm-8">
+            {{form.district}}
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">{{ form.branch.label}}:</label>
+        <div class="col-sm-8">
+            {{form.branch}}
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">{{ form.account_type.label}}:</label>
+        <div class="col-sm-8">
+            {{form.account_type}}
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">
+            {{ form.choices.label}}:
+        </label>
+        <div class="col-sm-8">
+            {% for choice in form.choices %}
+        <div  style="float:left;padding:5px;">
+            {{choice}}
+        </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_district").change(function () {
+        const url = $("#dataform").attr("data-cities-url");  // get the url of the `load_cities` view
+        const districtId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'district_id': districtId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_branch").html(data);  // replace the contents of the city input with the data that came from the server
+
+
+<!--                let html_data = '<option value="">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>';-->
+<!--                data.forEach(function (city) {-->
+<!--                    html_data += `<option value="${city.id}">${city.name}</option>`-->
+<!--                });-->
+<!--                console.log(html_data);-->
+<!--                $("#id_city").html(html_data);-->
+
+
+            }
+        });
+
+    });
+</script>
+    <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Logout</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
